@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.studentslistapp.databinding.ActivityMainBinding
+import com.example.studentslistapp.databinding.ItemStudentBinding
 
 
 class StudentRecyclerAdapter(private var students: List<Student>) :

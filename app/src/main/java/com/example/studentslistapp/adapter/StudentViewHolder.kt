@@ -2,9 +2,6 @@ package com.example.studentslistapp
 
 import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
-import com.example.studentslistapp.OnItemClickListener
-import com.example.studentslistapp.R
-import com.example.studentslistapp.Student
 import com.example.studentslistapp.databinding.ItemStudentBinding
 
 class StudentViewHolder(private val binding: ItemStudentBinding, listener: OnItemClickListener?) : RecyclerView.ViewHolder(binding.root) {
@@ -26,9 +23,6 @@ class StudentViewHolder(private val binding: ItemStudentBinding, listener: OnIte
         binding.studentImage.setImageResource(R.drawable.logo)
         binding.checkbox.isChecked = student.isChecked
 
-        binding.checkbox.setOnCheckedChangeListener { _, isChecked ->
-            student.isChecked = isChecked
-            Model.shared.updateStudent(student,student){}
-        }
+        // on checkbox change
     }
 }
