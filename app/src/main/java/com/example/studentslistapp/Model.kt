@@ -8,6 +8,7 @@ import java.util.concurrent.Executors
 
 
 typealias StudentsCallback = (List<Student>)-> Unit
+typealias StudentCallback = (Student)-> Unit
 typealias EmptyCallback = ()-> Unit
 
 
@@ -32,6 +33,14 @@ class Model private constructor(){
         }
     }
 
+    fun getStudentById(studentId:String,callback: StudentCallback) {
+        executor.execute{
+            val student= database.studentDao().getStudentById(studentId)
+            mainHandler.post {
+                callback(student)
+            }
+        }
+    }
     fun addStudent(student: Student, callback: EmptyCallback) {
         executor.execute {
             database.studentDao().insertStudent(student)

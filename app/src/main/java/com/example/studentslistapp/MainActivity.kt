@@ -45,7 +45,9 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
 
     override fun onItemClick(student: Student?) {
         student?.let {
-            TODO("Not yet implemented")
+            val intent = Intent(this, StudentDetailsActivity::class.java)
+            intent.putExtra("student_id", student.id)
+            startActivity(intent)
         }
     }
 
