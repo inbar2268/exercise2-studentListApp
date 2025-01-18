@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
             // Start NewStudent activity
             startActivityForResult(intent, ADD_STUDENT_REQUEST_CODE)
         }
-
         getAllStudents()
     }
 

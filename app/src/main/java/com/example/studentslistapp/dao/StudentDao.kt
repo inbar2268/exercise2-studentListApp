@@ -1,6 +1,7 @@
 package com.example.studentslistapp.dao
 
 
+import android.location.Address
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -21,9 +22,9 @@ interface StudentDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertStudent(vararg students: Student)
 
-    @Delete
-    fun deleteStudent(student: Student)
+    @Query("DELETE FROM Student WHERE id= :id ")
+    fun deleteStudent(id: String)
 
-    @Update
-    fun updateStudent(student: Student)
+      @Query("UPDATE Student SET name= :name, phone= :phone, address= :address , isChecked= :checked ,id= :id  WHERE id= :oldStudentId ")
+  fun updateStudent(oldStudentId:String,name:String, id:String, phone:String, address: String, checked: Boolean)
 }
